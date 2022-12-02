@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@300;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/arquivos/tailwind.css">
+    <title>Faça seu QR Gratuito</title>
+</head>
+<body class="bg-slate-100/50">
+        <header class="border border-black/20">
+            <div class="flex flex-row flex-wrap justify-around">
+                <h1 class="text-4xl sm:mt-2">QR Gerador</h1>
+                <ul class="invisible sm:visible">
+                    <li><a href="#how">Como funciona?</a></li>
+                    <li><a href="#create">Criar QR</a></li>
+                    <li><a href="#impressao">Impressão</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <section class="text-center flex flex-nowrap justify-between sm:mt-2">
+            <div class="m-10">
+                
+                <h2 class="text-rose-700 sm:text-3xl">Gere um QRCODE para o seu negócio!</h2>
+                <br>
+                <p class="text-xl">Use QR's Codes para facilitar sua vida e a do cliente :)...</p>
+            </div>
+            <div class="m-10">
+
+                <img src="http://www.kerodicas.com/wp-content/uploads/2010/11/QR-code.png" alt="">
+
+            </div>
+        </section>
+
+        <section id="how" class="p-10 text-center border border-black/20 sm:w-auto mt-2">
+            <div class="sm:m-10">
+                <h2 class="text-rose-700 sm:text-3xl">Como funciona um QRCODE?</h2>
+                <p class="text-1 sm:text-xl">O QR armazena informações que podem ser dados, geralmente são usados como links. Para usar 
+                    aponte sua câmera e você será direcionado uma página ou informação armazenada no código.
+                </p>
+                <ol>
+                    <li>1. Baixe um leitor de QR</li>
+                    <li>2. Digite um texto ou cole um link no campo</li>
+                    <li>3. Gere o QR e teste logo em seguida</li>
+                    <li>4. Faça o Download e a Impressão</li>
+                </ol>
+            </div>
+        </section>
+
+        <main id="create" class="w-auto text-xl">
+            <div class="flex flex-wrap w-auto justify-center">
+                <div class="text-center w-200 sm:m-20">
+                    <h2 class="text-rose-700 sm:text-3xl m-10">Criar QR</h2>
+
+                    <textarea class="border border-black/80 sm:m-10" maxlength="230" name="dados" id="qr" cols="30" rows="4">Digite as informações</textarea>
+
+                    <button class="p-2 rounded text-white bg-sky-800" onclick="gerarQR()" >Gerar</button>
+                </div>
+                <div class="">
+                    <small>*Atenção: Para gerar um novo qr, deve-se atualizar a página.*</small>
+                    <br>
+                    <img id="CodeImage">
+                </div>
+            </div>
+        </main>
+
+        <section id="impressao" class="p-10 text-center sm:w-auto mt-3">
+            <h2 class="text-rose-700 sm:sm:text-3xl mt-2">Impressão</h2>
+
+            <p class="sm:text-xl">
+                Para salvar o qr na sua máquina, seguir os seguintes passos...
+            </p>
+            <ol>
+                <li>1. Clicar em cima da imagem com o botão direito do mouse</li>
+                <li>2. Ir em Salvar imagem como...</li>
+                <li>3. Salvar na sua máquina e fazer a impressão</li>
+            </ol>
+        </section>
+
+    
+    <script>
+        function gerarQR(){
+        let inf = document.querySelector("#qr").value
+        let api = 'https://chart.googleapis.com/chart?cht=qr&chs=400x400&chl='
+
+        let codefinal = api + inf;
+
+        document.querySelector("#CodeImage").src = codefinal
+
+        }
+    </script>
+</body>
+</html>
+
+
